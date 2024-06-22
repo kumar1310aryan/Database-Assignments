@@ -47,13 +47,52 @@ const Employee = mongoose.model("Employee", userSchema);
 
 //inserting Multiple
 
-User.insertMany([
-  { name: "Xyz", email: "xyz@gmail.com", age: 199 },
-  { name: "Yzx", email: "yzx@gmail.com", age: 299 },
-  { name: "Zxy", email: "zxy@gmail.com", age: 399 },
-]).then((res) => {
-  console.log(res);
-});
+// User.insertMany([
+//   { name: "Xyz", email: "xyz@gmail.com", age: 199 },
+//   { name: "Yzx", email: "yzx@gmail.com", age: 299 },
+//   { name: "Zxy", email: "zxy@gmail.com", age: 399 },
+// ]).then((res) => {
+//   console.log(res);
+// });
 
 //Mongoose uses Operation Buffering :- It means Mongoose lets you start using models immediately, without waiting for mogoose to establish a connection to MongoDB.
-//
+
+//Find in Database
+
+//find()
+User.find({ age: { $gt: 19 } })
+  .then((res) => {
+    console.log(res[1].name);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+// findOne()
+User.findOne({ age: { $gt: 19 } })
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+//findOne() using id
+
+User.findOne({ _id: "66765f2d7ccbde99da32a4ae" })
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+// or simply by using findById(" ID ")
+
+User.findById("66765de9a6e87d7607508b7d")
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
