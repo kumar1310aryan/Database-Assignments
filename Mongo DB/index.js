@@ -60,26 +60,48 @@ const Employee = mongoose.model("Employee", userSchema);
 //Find in Database
 
 //find()
-User.find({ age: { $gt: 19 } })
-  .then((res) => {
-    console.log(res[1].name);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// User.find({ age: { $gt: 19 } })
+//   .then((res) => {
+//     console.log(res[1].name);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 // findOne()
-User.findOne({ age: { $gt: 19 } })
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// User.findOne({ age: { $gt: 19 } })
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 //findOne() using id
 
-User.findOne({ _id: "66765f2d7ccbde99da32a4ae" })
+// User.findOne({ _id: "66765f2d7ccbde99da32a4ae" })
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+// or simply by using findById(" ID ")
+
+// User.findById("66765de9a6e87d7607508b7d")
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+//UPDATE
+
+//updateOne
+
+Employee.updateOne({ name: "AryanKumar" }, { age: 20 })
   .then((res) => {
     console.log(res);
   })
@@ -87,9 +109,7 @@ User.findOne({ _id: "66765f2d7ccbde99da32a4ae" })
     console.log(err);
   });
 
-// or simply by using findById(" ID ")
-
-User.findById("66765de9a6e87d7607508b7d")
+User.updateMany({ age: { $gt: 45 } }, { age: 55 })
   .then((res) => {
     console.log(res);
   })
