@@ -101,15 +101,26 @@ const Employee = mongoose.model("Employee", userSchema);
 
 //updateOne
 
-Employee.updateOne({ name: "AryanKumar" }, { age: 20 })
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// Employee.updateOne({ name: "AryanKumar" }, { age: 20 })
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
-User.updateMany({ age: { $gt: 45 } }, { age: 55 })
+//   UpdateMany
+// User.updateMany({ age: { $gt: 45 } }, { age: 55 })
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+//to print along with updation(first prints and then update)--> to change this we use new:true
+
+User.findOneAndUpdate({ name: "Xyz" }, { age: 45 }, { new: true })
   .then((res) => {
     console.log(res);
   })
