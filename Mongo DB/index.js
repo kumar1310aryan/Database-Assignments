@@ -120,7 +120,38 @@ const Employee = mongoose.model("Employee", userSchema);
 
 //to print along with updation(first prints and then update)--> to change this we use new:true
 
-User.findOneAndUpdate({ name: "Xyz" }, { age: 45 }, { new: true })
+// User.findOneAndUpdate({ name: "Xyz" }, { age: 45 }, { new: true })
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+//Model.findByIdAndUpdate()
+
+//DELETE IN MONGOOSE
+
+// User.deleteOne({ name: "Xyz" })
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+// User.deleteMany({ age: 55 })
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+//Model.findByIdAndDelete()
+//Model.findOneAndDelete()
+
+User.deleteOne({ name: "Xyz" })
   .then((res) => {
     console.log(res);
   })
