@@ -1,4 +1,4 @@
-const { faker } = require("@faker-js/faker");
+// const { faker } = require("@faker-js/faker");
 const mysql = require("mysql2");
 const express = require("express");
 const app = express();
@@ -14,7 +14,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   database: "delta_app",
-  password: "password",
+  password: "aryandatabases",
 });
 
 app.get("/", (req, res) => {
