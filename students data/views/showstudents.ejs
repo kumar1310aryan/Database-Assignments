@@ -7,22 +7,32 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>Students List (Total: <%= totalCount %>)</h1> <!-- Display total count here -->
-    <a href="/students/new">Add New Student</a>
-    <ul>
-        <% students.forEach(student => { %>
-            <li>
-                <div class="student-info">
-                    <%= student.name %> - <%= student.age %> - <%= student.email %>
-                </div>
-                <div class="student-actions">
-                    <a href="/students/<%= student.id %>/edit" class="edit-button">Edit</a>
-                    <form action="/students/<%= student.id %>?_method=DELETE" method="POST" style="display:inline;">
-                        <button type="submit" class="delete-button">Delete</button>
-                    </form>
-                </div>
-            </li>
-        <% }) %>
-    </ul>
+    <h1>Students List (Total: <%= totalCount %>)</h1>
+    <a href="/students/new" class="add-button">Add New Student</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% students.forEach(student => { %>
+                <tr>
+                    <td><%= student.name %></td>
+                    <td><%= student.age %></td>
+                    <td><%= student.email %></td>
+                    <td>
+                        <a href="/students/<%= student.id %>/edit" class="edit-button">Edit</a>
+                        <form action="/students/<%= student.id %>?_method=DELETE" method="POST" style="display:inline;">
+                            <button type="submit" class="delete-button">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
 </body>
 </html>

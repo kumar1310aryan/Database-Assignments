@@ -1,8 +1,8 @@
-/* styles.css */
+/* New styles.css */
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f8f0f6; /* Light pink background */
   margin: 0;
   padding: 20px;
 }
@@ -12,79 +12,8 @@ h1 {
   text-align: center;
 }
 
-form {
-  background: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column; /* Ensure elements stack vertically */
-}
-
-label {
-  display: block;
-  margin: 10px 0 5px;
-}
-
-input[type="text"],
-input[type="number"],
-input[type="email"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-bottom: 10px;
-}
-
-button {
-  background-color: #5cb85c;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 10px; /* Add margin to separate from other elements */
-}
-
-button:hover {
-  background-color: #4cae4c;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  background: #fff;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  display: flex; /* Use flexbox for better alignment */
-  justify-content: space-between; /* Space out items */
-  align-items: center; /* Center items vertically */
-}
-
-.delete-button {
-  background-color: #d9534f; /* Red color for delete button */
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 10px; /* Space between text and delete button */
-}
-
-.delete-button:hover {
-  background-color: #c9302c; /* Darker red on hover */
-}
-
 a {
-  color: #007bff;
+  color: #ff6f61; /* Coral color for links */
   text-decoration: none;
 }
 
@@ -92,85 +21,72 @@ a:hover {
   text-decoration: underline;
 }
 
-/* styles.css */
-
-ul li {
-  background: #fff;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  display: flex; /* Use flexbox for better alignment */
-  justify-content: space-between; /* Space out items */
-  align-items: center; /* Center items vertically */
-}
-
-.student-info {
-  flex: 1; /* Allow the info to take available space */
-}
-
-.student-actions {
-  display: flex; /* Align actions in a row */
-  align-items: center; /* Center vertically */
-}
-
-.delete-button {
-  background-color: #d9534f; /* Red color for delete button */
+.add-button {
+  background-color: #ff6f61; /* Coral color */
   color: white;
-  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.add-button:hover {
+  background-color: #e55d4d; /* Darker coral color */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+table th {
+  background-color: #ffebee; /* Light pink */
+  color: #333;
+}
+
+table tr:nth-child(even) {
+  background-color: #fce4ec; /* Slightly darker light pink */
+}
+
+table tr:hover {
+  background-color: #f8bbd0; /* Hover effect */
+}
+
+.edit-button, .delete-button {
   padding: 5px 10px;
   border-radius: 4px;
-  cursor: pointer;
-  margin-left: 10px; /* Space between edit link and delete button */
-}
-
-.delete-button:hover {
-  background-color: #c9302c; /* Darker red on hover */
-}
-
-/* styles.css */
-
-ul li {
-  background: #fff;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  display: flex; /* Use flexbox for better alignment */
-  justify-content: space-between; /* Space out items */
-  align-items: center; /* Center items vertically */
-}
-
-.student-info {
-  flex: 1; /* Allow the info to take available space */
-}
-
-.student-actions {
-  display: flex; /* Align actions in a row */
-  align-items: center; /* Center vertically */
-}
-
-.edit-button,
-.delete-button {
-  background-color: #5bc0de; /* Color for edit button */
   color: white;
+  text-decoration: none;
+  display: inline-block;
   border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
   cursor: pointer;
-  margin-left: 10px; /* Space between buttons */
-  text-decoration: none; /* Remove underline from link */
-  display: inline-block; /* Make it behave like a button */
+  margin: 0 5px;
+}
+
+.edit-button {
+  background-color: #4caf50; /* Green */
 }
 
 .edit-button:hover {
-  background-color: #31b0d5; /* Darker blue on hover for edit button */
+  background-color: #388e3c; /* Darker green */
 }
 
 .delete-button {
-  background-color: #d9534f; /* Red color for delete button */
+  background-color: #f44336; /* Red */
 }
 
 .delete-button:hover {
-  background-color: #c9302c; /* Darker red on hover */
+  background-color: #c62828; /* Darker red */
+}
+
+form {
+  display: inline;
 }
