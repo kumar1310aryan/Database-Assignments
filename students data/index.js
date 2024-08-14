@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const mysql = require("mysql2");
 const express = require("express");
 const app = express();
@@ -11,27 +13,26 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  database: "student_data",
-  password: "aryandatabases",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
 
 // Home page
 app.get("/", (req, res) => {
-    let countQuery = `SELECT COUNT(*) AS totalCount FROM students_data`;
-  
-    connection.query(countQuery, (err, countResult) => {
-      if (err) {
-        console.log(err);
-        return res.send("Some error in database.");
-      }
-  
-      const totalCount = countResult[0].totalCount; // Get the total count from the result
-      res.render("home", { totalCount }); // Pass the total count to the home view
-    });
+  let countQuery = `SELECT COUNT(*) AS totalCount FROM students_data`;
+
+  connection.query(countQuery, (err, countResult) => {
+    if (err) {
+      console.log(err);
+      return res.send("Some error in database.");
+    }
+
+    const totalCount = countResult[0].totalCount; // Get the total count from the result
+    res.render("home", { totalCount }); // Pass the total count to the home view
   });
-  
+});
 
 // Show users
 app.get("/user", (req, res) => {
@@ -60,27 +61,26 @@ app.get("/user", (req, res) => {
 // });
 
 app.get("/students", (req, res) => {
-    let studentsQuery = `SELECT * FROM students_data`;
-    let countQuery = `SELECT COUNT(*) AS totalCount FROM students_data`;
-  
-    connection.query(studentsQuery, (err, students) => {
+  let studentsQuery = `SELECT * FROM students_data`;
+  let countQuery = `SELECT COUNT(*) AS totalCount FROM students_data`;
+
+  connection.query(studentsQuery, (err, students) => {
+    if (err) {
+      console.log(err);
+      return res.send("Some error in database.");
+    }
+
+    connection.query(countQuery, (err, countResult) => {
       if (err) {
         console.log(err);
         return res.send("Some error in database.");
       }
-  
-      connection.query(countQuery, (err, countResult) => {
-        if (err) {
-          console.log(err);
-          return res.send("Some error in database.");
-        }
-  
-        const totalCount = countResult[0].totalCount; // Get the total count from the result
-        res.render("showstudents", { students, totalCount });
-      });
+
+      const totalCount = countResult[0].totalCount; // Get the total count from the result
+      res.render("showstudents", { students, totalCount });
     });
   });
-  
+});
 
 // Form to add a student
 app.get("/students/new", (req, res) => {
