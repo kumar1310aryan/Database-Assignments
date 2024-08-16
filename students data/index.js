@@ -35,17 +35,17 @@ app.get("/", (req, res) => {
 });
 
 // Show users
-app.get("/user", (req, res) => {
-  let q = `SELECT * FROM user`;
+// app.get("/user", (req, res) => {
+//   let q = `SELECT * FROM user`;
 
-  connection.query(q, (err, users) => {
-    if (err) {
-      console.log(err);
-      return res.send("Some error in database.");
-    }
-    res.render("showusers", { users });
-  });
-});
+//   connection.query(q, (err, users) => {
+//     if (err) {
+//       console.log(err);
+//       return res.send("Some error in database.");
+//     }
+//     res.render("showusers", { users });
+//   });
+// });
 
 // Show students
 // app.get("/students", (req, res) => {
